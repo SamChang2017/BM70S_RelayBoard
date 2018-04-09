@@ -153,6 +153,13 @@ void relayControl(char data){
             IO_RD1_SetLow(); //CD2_15 
             IO_RB6_SetLow(); 
             IO_RB7_SetLow(); 
+            // Reset K12, K13, K14, K15, K16 
+            // Date: 20180404
+            IO_RB3_SetLow();
+            IO_RB2_SetLow();
+            IO_RB1_SetLow();
+            IO_RB0_SetLow();
+            IO_RD7_SetLow();
             break;
         case 2: // site 0; DUT UART open
             IO_RA0_SetLow(); //CD1_1 
@@ -276,6 +283,12 @@ void relayControl(char data){
             // 2018/03/05
             // Sam Chang A17382
             // FW update for BM77 schematic_V3
+            case 43: // site 0
+            IO_RB3_SetHigh(); // CD2_15
+            break;
+            case 45: // site 0
+            IO_RB2_SetHigh(); // CD2_15
+            break;
             case 47: // site 0
             IO_RB1_SetHigh(); // CD2_15
             break;
